@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using SampleSolution.Core.Models.Entities;
-using SampleSolution.Core.Services.Base;
 using SampleSolution.ServerCore.Controllers.Base;
+using SampleSolution.ServerCore.DBContexts;
+using SampleSolution.ServerCore.IServices.Base;
 
 namespace SampleSolution.Backend.Controllers
 {
@@ -9,7 +10,7 @@ namespace SampleSolution.Backend.Controllers
     [Route("api/config")]
     public class ConfigController : CrudController<Config, long>
     {
-        public ConfigController(ICrudService<Config, long> service) : base(service)
+        public ConfigController(ICrudDbService<MainDbContext, Config, long> service) : base(service)
         {
         }
     }

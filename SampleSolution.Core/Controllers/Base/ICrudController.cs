@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using SampleSolution.Core.Models.Entities.Base;
 using SampleSolution.Core.Models.ViewModels.Pagination;
 
 namespace SampleSolution.Core.Controllers.Base
 {
-    public interface ICrudController<TEntity, TId> //where TEntity : IEntity<TId>, new()
+    public interface ICrudController<TEntity, TId>
+        where TEntity : class, IEntity<TId>, new()
     {
         Task<TEntity> Create(TEntity entity);
 
